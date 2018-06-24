@@ -11,7 +11,7 @@ fbAppSecret: process.env.fbAppSecret,
 ```
 ## Step 2
 - Run `npm start` and then you'll see in log: **My express app is listening and its server is used in Botmaster**.
-- If your open this link `localhost:3000/messenger/webhook` on browser you will see text: "Error, wrong validation token".
+- If your open this link `localhost:3000/messenger/webhook` on browser you will see text: `Error, wrong validation token`.
 - Your link webhook will be: `localhost:3000/messenger/webhook`. 
 - You can use `ngrok` for export localhost on the internet and put in to your FB Messenger webhook page.
 
