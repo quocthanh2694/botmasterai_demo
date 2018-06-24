@@ -1,0 +1,16 @@
+{
+  "name": "my_botmaster_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Thanh Tran",
+  "license": "ISC",
+  "dependencies": {
+    "botmaster": "^3.2.0",
+    "botmaster-messenger": "^1.2.0",
+    "botmaster-twitter-dm": "^1.0.0"
+  }
+}
