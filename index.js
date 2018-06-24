@@ -2,6 +2,22 @@
 // const express = require('express');
 // const app = express();
 
+
+// // // ///// express
+// app.get('/', (req, res) => {
+//     // const messengerBot = new MessengerBot(messengerSettings);
+//     // console.log(messengerBot);
+//     res.send('Hello World!')
+// });
+// var listener = app.listen(process.env.PORT || 3000, process.env.address, () => {
+//     console.log("Server listening at: " + listener.address().address + ":" + listener.address().port);
+
+
+    
+// });
+
+
+
 // bot master
 const Botmaster = require('botmaster');
 const botmaster = new Botmaster();
@@ -13,6 +29,7 @@ const messengerSettings = {
         fbAppSecret: process.env.fbAppSecret,
     },
     // domain: '127.0.0.1',
+    port: 3000,
     webhookEndpoint: 'webhook', // botmaster will mount this webhook on https://Your_Domain_Name/messenger/webhook1234
 };
 console.log(messengerSettings);
@@ -25,17 +42,10 @@ botmaster.use({
     name: 'my-incoming-middleware',
     controller: (bot, update) => {
       console.log(update);
-      
+
       return bot.reply(update, 'Hi, You say: ' + update.message.text );
     }
   });
- 
-// // ///// express
-// app.get('/', (req, res) => {
-//     // const messengerBot = new MessengerBot(messengerSettings);
-//     // console.log(messengerBot);
-//     res.send('Hello World!')
-// });
-// var listener = app.listen(process.env.PORT || 3000, process.env.address, () => {
-//     console.log("Server listening at: " + listener.address().address + ":" + listener.address().port)
-// });
+ console.log(botmaster);
+
+
