@@ -37,7 +37,7 @@ const messengerSettings = {
     },
     // domain: '127.0.0.1',
     // port: process.env.PORT || 3000,
-    webhookEndpoint: 'webhook', // botmaster will mount this webhook on https://Your_Domain_Name/messenger/webhook1234
+    webhookEndpoint: 'webhook', // botmaster will mount this webhook on https://Your_Domain_Name/messenger/webhook
 };
 console.log(messengerSettings);
 const messengerBot = new MessengerBot(messengerSettings);
