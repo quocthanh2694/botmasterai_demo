@@ -15,7 +15,7 @@ const messengerSettings = {
     // domain: '127.0.0.1',
     webhookEndpoint: 'webhook', // botmaster will mount this webhook on https://Your_Domain_Name/messenger/webhook1234
 };
-
+console.log(messengerSettings);
 const messengerBot = new MessengerBot(messengerSettings);
 
 botmaster.addBot(messengerBot);
