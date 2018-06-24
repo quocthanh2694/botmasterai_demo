@@ -29,7 +29,7 @@ const messengerSettings = {
         fbAppSecret: process.env.fbAppSecret,
     },
     // domain: '127.0.0.1',
-    port: 3000,
+    port: process.env.PORT || 3000,
     webhookEndpoint: 'webhook', // botmaster will mount this webhook on https://Your_Domain_Name/messenger/webhook1234
 };
 console.log(messengerSettings);
