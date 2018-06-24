@@ -25,6 +25,7 @@ botmaster.use({
     name: 'my-incoming-middleware',
     controller: (bot, update) => {
       console.log(update);
+      
       return bot.reply(update, 'Hi, You say: ' + update.message.text );
     }
   });
