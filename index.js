@@ -1,45 +1,48 @@
-
-// const express = require('express');
-// const app = express();
-
-
-// // // ///// express
-// app.get('/', (req, res) => {
-//     // const messengerBot = new MessengerBot(messengerSettings);
-//     // console.log(messengerBot);
-//     res.send('Hello World!')
-// });
-// var listener = app.listen(process.env.PORT || 3000, process.env.address, () => {
-//     console.log("Server listening at: " + listener.address().address + ":" + listener.address().port);
-
-
-
-// });
-
 const Botmaster = require('botmaster');
-
+var ZaloOA = require('zalo-sdk').ZaloOA;
+const MessengerBot = require('botmaster-messenger');
 const express = require('express');
 const app = express();
+
+var zaConfig = {
+    oaid: process.env.oaid,
+    secretkey: process.env.secretkey
+}
+var ZOAClient = new ZaloOA(zaConfig);
+// zalo 
+app.get('/webhookzl', (req, res) => {
+    console.log(req.query.fromuid);
+    var date = new Date();
+    ZOAClient.api('sendmessage/text', 'POST', {
+        uid: req.query.fromuid, message: 'Hi, you say: ' + req.query.message + '.'
+    }, function (response) {
+        // console.log(response);
+    });
+
+    res.send('receive method');
+})
+
+
+
+// express server
 const myServer = app.listen(process.env.PORT || 3000, process.env.address);
 const botmaster = new Botmaster({ server: myServer });
 myServer.on('listening', () => {
     console.log('My express app is listening and its server is used in Botmaster');
 })
 
-// bot master
 
-const MessengerBot = require('botmaster-messenger');
+
+// bot master
 const messengerSettings = {
     credentials: {
         verifyToken: process.env.verifyToken,
         pageToken: process.env.pageToken,
         fbAppSecret: process.env.fbAppSecret,
     },
-    // domain: '127.0.0.1',
-    // port: process.env.PORT || 3000,
-    webhookEndpoint: 'webhook', // botmaster will mount this webhook on https://Your_Domain_Name/messenger/webhook
+    webhookEndpoint: 'webhookfb', // messenger/webhookfb
 };
-console.log(messengerSettings);
+
 const messengerBot = new MessengerBot(messengerSettings);
 
 botmaster.addBot(messengerBot);
@@ -49,8 +52,7 @@ botmaster.use({
     name: 'my-incoming-middleware',
     controller: (bot, update) => {
         console.log(update);
-
-        return bot.reply(update, 'Hi, You say: ' + update.message.text);
+        return bot.reply(update, 'Hi, You say: ' + update.message.text + '.');
     }
 });
 console.log(botmaster);
