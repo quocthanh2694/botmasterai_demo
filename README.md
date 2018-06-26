@@ -18,7 +18,6 @@ process.env.secretkey
 ```
 ## Step 2
 - Run `npm start` and then you'll see in log: **My express app is listening and its server is used in Botmaster**.
-- If your open this link `localhost:3000/messenger/webhook` on browser you will see text: `Error, wrong validation token`.
 - Your messsenger webhook link is: `/messenger/webhookfb`. 
 - Your zalo webhook is: `/webhookzl`.
 - You can use `ngrok` for export localhost on the internet and put in to your FB Messenger / zalo accounts.
