@@ -4,13 +4,14 @@ Tutorial demo chatbot with BotMasterAI and zalo sdk
 ## Step 1
 - Run `npm install`
 - Update your information bellow in **index.js**:
-**Facebook Messenger**
+
+--**Facebook Messenger**
 ```
 process.env.verifyToken,
 process.env.pageToken,
 process.env.fbAppSecret,
 ```
-**zalo**
+--**zalo**
 ```
 process.env.oaid
 process.env.secretkey
